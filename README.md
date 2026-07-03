@@ -1,5 +1,9 @@
 # TAMamba
 TAMamba
+# Reference Repository
+If you have any questions about our training and testing template, including model selection, dataset download and preprocessing, please check this open-source repository:
+https://github.com/sstary/SSRS
+Our experimental template is derived from this project.
 
 # Environment & Training Configuration Modification Guide
 ## 1. Modify `train_DK_Mamba_Net_S3F_Dual42_16.py`
