@@ -55,7 +55,7 @@ os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
 # ✅ 使用两张显卡
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
-from MPSegNet.mamba.DK_Mamba_Net_S3F_Dual_HFBS import DK_Mamba_Net_S3F_Dual_HFBS as MPSegNet
+from MPSegNet.mamba.DK_Mamba_Net_S3F_Dual import DK_Mamba_Net_S3F_Dual as MPSegNet
 from losses.dice import DiceLoss
 from losses.soft_ce import SoftCrossEntropyLoss
 
@@ -65,7 +65,7 @@ DATASET = 'Vaihingen'
 if DATASET == 'Vaihingen':
     # !! 重要 !!: 确保你有一个名为 utils_MPSegNet_Mamba_new_Boundry_M.py 的文件
     # 并且这个文件中的代码与你之前提供的一致。
-    from First.utils_test import *
+    from utils_test import *
 
 # ===================================================================================
 # 3. 准备模型、损失函数、数据
@@ -350,7 +350,7 @@ if __name__ == '__main__':
         # 打印Test模式启动日志 (便于确认分支已触发)
         print(f"\n=== 进入 Test 模式 (数据集: {DATASET}) ===")
         # 加载权重 (修复权重键匹配问题)
-        weight_path = '/home/duyihan/pycharm_project/SSRS-main/SAM_RS_L40/TRY/resultv_DK_Mamba_Net_S3F_Dual_HFBS/42_16/75_1_75_8_5_2/XN_best_now/MPSegNet_epoch25_MIoU0.8576.pth'
+        weight_path = '/home/duyihan/pycharm_project/SSRS-main/SAM_RS_L40/TRY/resultv_DK_Mamba_Net_S3F_Dual/42_16/75_1_75_8_5_2/XN_best_now/MPSegNet_epoch25_MIoU0.8576.pth'
         print(f"正在加载权重: {weight_path}")
 
         # 核心修复：移除权重中的'module.'前缀 (兼容多GPU训练的权重)
